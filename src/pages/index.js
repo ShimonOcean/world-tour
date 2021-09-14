@@ -7,6 +7,8 @@ export default function Home({ countries }) {
   console.log(countries);
   return <Layout>
     <div className={styles.counts}>Found {countries.length} countries</div>
+
+    <SearchInput/>
   </Layout>;
 }
 
