@@ -6,3 +6,4 @@ const SearchInput = () => {
     </div>
 }
 
+export default SearchInput
