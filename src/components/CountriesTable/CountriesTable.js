@@ -1,6 +1,13 @@
 import styles from './CountriesTable.module.css';
 
+const orderBy = (countries) => {
+    return countries.sort((a,b) => a.population > b.population ? 1 : -1)
+}
+
 const CountriesTable = ({countries}) => {
+
+    const orderedCountries = orderBy(countries);
+
     return <div>
         <div className={styles.heading}>
             <button className={styles.heading_name}>
