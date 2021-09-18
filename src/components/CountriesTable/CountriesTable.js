@@ -1,3 +1,4 @@
+import { KeyboardArrowDownRounded } from '@material-ui/icons';
 import styles from './CountriesTable.module.css';
 
 const orderBy = (countries, direction) => {
@@ -21,11 +22,19 @@ const CountriesTable = ({ countries }) => {
                     <div>
                     Name 
                     </div>
+                    <div className={styles.heading_arrow}>
+                        <KeyboardArrowDownRounded/>
+                    </div>
+
                 </button>
 
                 <button className={styles.heading_population}>
                     <div>
                     Population
+                    </div>
+
+                    <div className={styles.heading_arrow}>
+                        <KeyboardArrowDownRounded/>
                     </div>
                 </button>
 
