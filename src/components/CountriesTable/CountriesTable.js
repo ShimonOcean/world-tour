@@ -1,4 +1,5 @@
 import { KeyboardArrowDownRounded } from '@material-ui/icons';
+import { useState } from 'react';
 import styles from './CountriesTable.module.css';
 
 const orderBy = (countries, direction) => {
@@ -16,26 +17,36 @@ const SortArrow = ({ direction }) => {
         return <></>;
     }
 
-    if (direction === 'desc'){
+    if (direction === 'asc'){
         return (
             <div className={styles.heading_arrow}>
-                <KeyboardArrowDownRounded/>
+                <KeyboardArrowDownRounded color="inherit"/>
             </div>  
         )
     } else {
         return (
             <div className={styles.heading_arrow}>
-                <KeyboardArrowUpRounded/>
+                <KeyboardArrowUpRounded color="inherit"/>
             </div>  
         )
     }
 }
 
 const CountriesTable = ({ countries }) => {
+    const [direction, setDirection] = useState();
+    const [value, setValue] = useState();
 
-    const orderedCountries = orderBy(countries, 'desc');
-    console.log(orderedCountries);
-    console.log(countries)    
+    const orderedCountries = orderBy(countries, 'desc');  
+
+    const switchDirection = () => {
+        if (!direction){
+            setDirection("desc")
+        } else if (direction === "desc"){
+            setDirection("asc")
+        } else {
+            setDirection(null)
+        }
+    }
 
     return (
         <div>
@@ -48,12 +59,12 @@ const CountriesTable = ({ countries }) => {
 
                 </button>
 
-                <button className={styles.heading_population}>
+                <button className={styles.heading_population} onClick={switchDirection}>
                     <div>
                     Population
                     </div>
 
-                    <SortArrow direction="desc"/>
+                    <SortArrow direction={direction}/>
                 </button>
 
             </div>
