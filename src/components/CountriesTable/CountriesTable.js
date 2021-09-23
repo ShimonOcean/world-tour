@@ -1,4 +1,4 @@
-import { KeyboardArrowDownRounded } from '@material-ui/icons';
+import { KeyboardArrowDownRounded, KeyboardArrowUpOutlined } from '@material-ui/icons';
 import { useState } from 'react';
 import styles from './CountriesTable.module.css';
 
@@ -26,7 +26,7 @@ const SortArrow = ({ direction }) => {
     } else {
         return (
             <div className={styles.heading_arrow}>
-                <KeyboardArrowUpRounded color="inherit"/>
+                <KeyboardArrowUpOutlinedUp color="inherit"/>
             </div>  
         )
     }
